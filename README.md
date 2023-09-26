@@ -8,5 +8,12 @@ Atendendo os principais requisitos para vagas de emprego.
 
 - NET 7.0
 - C#
-- Dapper
 - SQLite
+- Entity Framework
+- Dapper
+
+
+## Roadmap
+
+- criar um enpoint "/api/usuarios" que retorne todos os usuários cadastrados
+-- usando um novo projeto com Dapper e SQLite
