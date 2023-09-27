@@ -30,6 +30,7 @@ namespace DesenvolvedorNET
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddMvc();
             builder.Services.AddRazorPages();
+            builder.Services.AddControllers();
 
             var app = builder.Build();
 
@@ -38,7 +39,7 @@ namespace DesenvolvedorNET
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();  
-                
+                endpoints.MapControllers();
             });
 
             app.Run();

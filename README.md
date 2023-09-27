@@ -16,6 +16,7 @@ Aplicando as principais tecnologias desse ecossistema.
 
 ## Roadmap
 
-- criar um enpoint "/api/usuarios" que retorne todos os usuários cadastrados
-	- [x] usar o Evolve DB para controlar as versões do banco de dados
+- endpoint "/usuario" retornar uma lista estatica de usuarios do metodo Get() do controller
+- criar um enpoint "/api/usuario" que retorne todos os usuários cadastrados
+	- usando o Evolve DB para controlar as versões do banco de dados
 	- usando um novo projeto com Dapper e SQLite
