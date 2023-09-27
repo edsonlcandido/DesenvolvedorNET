@@ -4,14 +4,14 @@ using Microsoft.AspNetCore.Mvc;
 namespace DesenvolvedorNET.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class UsuarioController : ControllerBase
     {
         public UsuarioController()
         {
         }
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Index()
         {
             //return JSON for Models/Usuario.cs
             List<Usuario> list = new List<Usuario>();   
