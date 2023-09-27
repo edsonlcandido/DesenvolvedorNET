@@ -10,10 +10,12 @@ Aplicando as principais tecnologias desse ecossistema.
 - C#
 - Markdig
 - Razor pages
+- Evolve DB 
 - SQLite
 - Dapper
 
 ## Roadmap
 
 - criar um enpoint "/api/usuarios" que retorne todos os usuários cadastrados
+	- [x] usar o Evolve DB para controlar as versões do banco de dados
 	- usando um novo projeto com Dapper e SQLite
