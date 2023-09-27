@@ -2,7 +2,7 @@
 
 Projeto criado para aplicar os meus conhecimentos em .NET utilizando o C#.
 
-Atendendo os principais requisitos para vagas de emprego.
+Aplicando as principais tecnologias desse ecossistema.
 
 ## Tecnologias utilizadas
 
@@ -12,7 +12,6 @@ Atendendo os principais requisitos para vagas de emprego.
 - Razor pages
 - SQLite
 - Dapper
-
 
 ## Roadmap
 
