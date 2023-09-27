@@ -1,0 +1,18 @@
+﻿@page "/"
+@model DesenvolvedorNET.Pages.IndexModel
+
+<!DOCTYPE html>
+<html>
+<head>  
+    <meta charset="utf-8">
+    <title>Desenvolvedor NET</title>    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+@{
+    var md = System.IO.File.ReadAllText("README.md");
+    var html = Markdig.Markdown.ToHtml(md);   
+    @Html.Raw(html)
+}    
+</body>
+</html>
