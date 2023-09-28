@@ -1,4 +1,4 @@
-﻿@page
+﻿@page 
 @model DesenvolvedorNET.Pages.Usuario.IndexModel
 
 <!DOCTYPE html>
@@ -9,12 +9,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-@foreach (var usuario in Model.Usuarios)
+    <h1>@Model.Title</h1>
+    <table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    @foreach (var usuario in Model.Usuarios)
     {
-        <div>
-            <h3>@usuario.Nome</h3>
-            <p>@usuario.Id</p>
-        </div>
+        <tr>
+            <td>@usuario.Id</td>
+            <td>@usuario.Nome</td>
+            <td>                
+                <a href="/usuario/@usuario.Id">Detalhes</a> |
+                <a>Editar</a> |
+                <a>Excluir</a>
+            </td>
+        </tr>
     }
+    </table>
 </body>
 </html>

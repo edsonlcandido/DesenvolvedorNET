@@ -10,25 +10,14 @@ namespace DesenvolvedorNET.Pages.Usuario
     public class IndexModel : PageModel
     {
        
-        private string _title    = "Usuario";
+        private string _title    = "Usuários";
         public DesenvolvedorNET.Models.UsuarioModel[] Usuarios { get; set; }
 
         public string Title
         {
             get { return _title; }
         }
-
-        public async Task<DesenvolvedorNET.Models.UsuarioModel[]> UsuariosFromJsonAsync()
-        {
-            var httpClient = new System.Net.Http.HttpClient();
-            httpClient.BaseAddress = new System.Uri("http://localhost:5064");
-            var json = await httpClient.GetStringAsync("/api/usuario");
-
-            return JsonSerializer.Deserialize<DesenvolvedorNET.Models.UsuarioModel[]>(json);
-        }
-
         public async Task OnGetAsync()
-
         {
             var httpClient = new System.Net.Http.HttpClient();
             httpClient.BaseAddress = new System.Uri("http://localhost:5064");
