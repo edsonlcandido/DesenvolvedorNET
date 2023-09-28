@@ -11,20 +11,20 @@ namespace DesenvolvedorNET.Pages.Usuario
     {
        
         private string _title    = "Usuario";
-        public DesenvolvedorNET.Models.Usuario[] Usuarios { get; set; }
+        public DesenvolvedorNET.Models.UsuarioModel[] Usuarios { get; set; }
 
         public string Title
         {
             get { return _title; }
         }
 
-        public async Task<DesenvolvedorNET.Models.Usuario[]> UsuariosFromJsonAsync()
+        public async Task<DesenvolvedorNET.Models.UsuarioModel[]> UsuariosFromJsonAsync()
         {
             var httpClient = new System.Net.Http.HttpClient();
             httpClient.BaseAddress = new System.Uri("http://localhost:5064");
             var json = await httpClient.GetStringAsync("/api/usuario");
 
-            return JsonSerializer.Deserialize<DesenvolvedorNET.Models.Usuario[]>(json);
+            return JsonSerializer.Deserialize<DesenvolvedorNET.Models.UsuarioModel[]>(json);
         }
 
         public async Task OnGetAsync()
@@ -32,7 +32,7 @@ namespace DesenvolvedorNET.Pages.Usuario
         {
             var httpClient = new System.Net.Http.HttpClient();
             httpClient.BaseAddress = new System.Uri("http://localhost:5064");
-            Usuarios = await httpClient.GetFromJsonAsync <DesenvolvedorNET.Models.Usuario[]>("/api/usuario");
+            Usuarios = await httpClient.GetFromJsonAsync <DesenvolvedorNET.Models.UsuarioModel[]>("/api/usuario");
         }
     }
 }
