@@ -23,6 +23,6 @@ Aplicando as principais tecnologias desse ecossistema.
 - pagina /usuario mostra todos os usuários cadastrados
 - criar um endpoint "/api/usuario/{id}" que retorne um usuário específico
 - pagina /usuario/{id} mostra os detalhes de um usuário específico
-- [] criar um endpoint "/api/usuario" que permita cadastrar um novo usuário
-- [] criar um endpoint "/api/usuario/{id}" que permita atualizar um usuário
-- [] criar um endpoint "/api/usuario/{id}" que permita excluir um usuário
+- [ ] criar um endpoint "/api/usuario" que permita cadastrar um novo usuário
+- [ ] criar um endpoint "/api/usuario/{id}" que permita atualizar um usuário
+- [ ] criar um endpoint "/api/usuario/{id}" que permita excluir um usuário
