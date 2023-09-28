@@ -1,0 +1,25 @@
+﻿@page "/usuario/{id}"
+@model DesenvolvedorNET.Pages.Usuario._id_Model
+@{
+}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>@Model.Title</title>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1>@Model.Title</h1>
+    <table>
+        <tr>
+            <td>Id</td>
+            <td>@Model.Usuario.Id</td>
+        </tr>
+        <tr>
+            <td>Nome</td>
+            <td>@Model.Usuario.Nome</td>
+    </table>
+</body>
+</html>

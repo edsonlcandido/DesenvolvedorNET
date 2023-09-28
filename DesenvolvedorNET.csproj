@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.151" />
     <PackageReference Include="Evolve" Version="3.2.0" />
     <PackageReference Include="Markdig" Version="0.33.0" />
     <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="7.0.11" />

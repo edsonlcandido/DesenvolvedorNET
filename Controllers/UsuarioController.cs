@@ -1,33 +1,32 @@
 ﻿using DesenvolvedorNET.Models;
+using DesenvolvedorNET.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DesenvolvedorNET.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class UsuarioController : ControllerBase
     {
         public UsuarioController()
         {
         }
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Index()
         {
-            //return JSON for Models/Usuario.cs
-            List<Usuario> list = new List<Usuario>();   
-            //new usuario
-            Usuario usuario = new Usuario();
-            usuario.Id = Guid.NewGuid();
-            usuario.Nome = "Desenvolvedor.NET";
-            //other usuario
-            Usuario usuario2 = new Usuario();
-            usuario2.Id = Guid.NewGuid();
-            usuario2.Nome = "Desenvolvedor.NET 2";
-            //add usuarios
-            list.Add(usuario);
-            list.Add(usuario2);
-            //return list
-            return Ok(list);
+            //get all Usuarios from database
+            var list = UsuarioRepository.GetAll();
+            //convert ienumerable to list
+            List<UsuarioModel> usuarios = list.Result.ToList();
+            return Ok(usuarios);
+        }
+        [HttpGet("{id}")]
+        public IActionResult Index(string id)
+        {
+            //get a Usuario by id from database
+            var resul = UsuarioRepository.GetById(id);
+            UsuarioModel usuario = resul.Result;
+            return Ok(usuario);
         }
     }
 }
