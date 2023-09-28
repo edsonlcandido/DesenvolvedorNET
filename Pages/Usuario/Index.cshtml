@@ -5,12 +5,16 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Usuario</title>
+    <title>@Model.Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-    @{
-
+@foreach (var usuario in Model.Usuarios)
+    {
+        <div>
+            <h3>@usuario.Nome</h3>
+            <p>@usuario.Id</p>
+        </div>
     }
 </body>
 </html>
