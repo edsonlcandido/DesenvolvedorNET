@@ -15,7 +15,8 @@ namespace DesenvolvedorNET.Pages.Usuario
         public async Task OnGetAsync(string id)
         {
             var httpClient = new System.Net.Http.HttpClient();
-            httpClient.BaseAddress = new System.Uri("http://localhost:5064");
+            Uri newUri = new UriBuilder(Request.Scheme, Request.Host.Host, (int)Request.Host.Port).Uri;
+            httpClient.BaseAddress = newUri;
             Usuario = await httpClient.GetFromJsonAsync<DesenvolvedorNET.Models.UsuarioModel>($@"/api/usuario/{id}");
         }
     }
