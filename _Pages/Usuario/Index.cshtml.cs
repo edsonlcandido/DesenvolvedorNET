@@ -11,7 +11,7 @@ namespace DesenvolvedorNET.Pages.Usuario
     {
        
         private string _title    = "Usuários";
-        public DesenvolvedorNET.Models.UsuarioModel[] Usuarios { get; set; }
+        public DesenvolvedorNET.Models.Usuario[] Usuarios { get; set; }
 
         public string Title
         {
@@ -22,7 +22,7 @@ namespace DesenvolvedorNET.Pages.Usuario
             HttpClient httpClient = new System.Net.Http.HttpClient();
             Uri newUri = new UriBuilder(Request.Scheme, Request.Host.Host, (int)Request.Host.Port).Uri;
             httpClient.BaseAddress = newUri;
-            Usuarios = await httpClient.GetFromJsonAsync <DesenvolvedorNET.Models.UsuarioModel[]>("/api/usuario");
+            Usuarios = await httpClient.GetFromJsonAsync <DesenvolvedorNET.Models.Usuario[]>("/api/usuario");
         }
     }
 }

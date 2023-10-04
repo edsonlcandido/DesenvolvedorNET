@@ -4,6 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Markdig;
 using Microsoft.Data.Sqlite;
 using EvolveDb;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DesenvolvedorNET
 { 
@@ -28,20 +30,30 @@ namespace DesenvolvedorNET
             evolve.Migrate();
 
             var builder = WebApplication.CreateBuilder(args);
-            builder.Services.AddMvc();
-            builder.Services.AddRazorPages();
-            builder.Services.AddControllers();
+
+            builder.Services.AddMvc(opttions =>
+            {
+                opttions.EnableEndpointRouting = false;
+            });
 
             var app = builder.Build();
 
-            app.UseStaticFiles();
-            app.UseRouting();
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapRazorPages();  
-                endpoints.MapControllers();
-            });
+            IHostEnvironment env = app.Services.GetService<IHostEnvironment>();
 
+            if (env.IsDevelopment())
+            {
+                //create a DeveloperExceptionPageOptions with default values
+                DeveloperExceptionPageOptions developerExceptionPageOptions = new DeveloperExceptionPageOptions();
+                developerExceptionPageOptions.SourceCodeLineCount = 6;
+                app.UseDeveloperExceptionPage();
+            }
+
+            //create a StaticFileoptions with default values
+            StaticFileOptions staticFileOptions = new StaticFileOptions();
+            staticFileOptions.DefaultContentType = "None";
+            staticFileOptions.ServeUnknownFileTypes = false;
+            app.UseStaticFiles(staticFileOptions);
+            app.UseMvcWithDefaultRoute();
             app.Run();
         }
     }

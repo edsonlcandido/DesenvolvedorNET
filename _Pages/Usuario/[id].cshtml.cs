@@ -11,13 +11,13 @@ namespace DesenvolvedorNET.Pages.Usuario
         {
             get { return _title; }
         }
-        public UsuarioModel Usuario { get; set; }
+        public Models.Usuario Usuario { get; set; }
         public async Task OnGetAsync(string id)
         {
             var httpClient = new System.Net.Http.HttpClient();
             Uri newUri = new UriBuilder(Request.Scheme, Request.Host.Host, (int)Request.Host.Port).Uri;
             httpClient.BaseAddress = newUri;
-            Usuario = await httpClient.GetFromJsonAsync<DesenvolvedorNET.Models.UsuarioModel>($@"/api/usuario/{id}");
+            Usuario = await httpClient.GetFromJsonAsync<DesenvolvedorNET.Models.Usuario>($@"/api/usuario/{id}");
         }
     }
 }

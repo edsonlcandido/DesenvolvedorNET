@@ -8,21 +8,21 @@ Aplicando as principais tecnologias desse ecossistema.
 
 - NET 7.0
 - C#
+- Evolve DB
+- ASP.NET Core
 - Markdig
-- Razor pages
-- Evolve DB 
 - SQLite
 - Dapper
 
 ## Roadmap
 
-- endpoint "/usuario" retornar uma lista estatica de usuarios do metodo Get() do controller
-- criar um enpoint "/api/usuario" que retorne todos os usuários cadastrados
+- renderizar em html esse README.md usando o Markdig ao acessar "/"
+- criar um enpoint [/api/usuario](/api/usuario) que retorne todos os usuários cadastrados
 	- usando o Evolve DB para controlar as versões do banco de dados
 	- usando Dapper e SQLite
-- pagina /usuario mostra todos os usuários cadastrados
+- pagina [/usuario](/usuario) mostra todos os usuários cadastrados
 - criar um endpoint "/api/usuario/{id}" que retorne um usuário específico
-- pagina /usuario/{id} mostra os detalhes de um usuário específico
+- pagina /usuario/details/{id} mostra os detalhes de um usuário específico
 - [ ] criar um endpoint "/api/usuario" que permita cadastrar um novo usuário
 - [ ] criar um endpoint "/api/usuario/{id}" que permita atualizar um usuário
 - [ ] criar um endpoint "/api/usuario/{id}" que permita excluir um usuário

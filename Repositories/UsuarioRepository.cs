@@ -21,27 +21,27 @@ namespace DesenvolvedorNET.Repositories
         }
 
         //method to get all Usuarios from database
-        public static async Task<IEnumerable<UsuarioModel>> GetAll()
+        public static async Task<IEnumerable<Usuario>> GetAll()
         {
             using (var cnn = new SqliteConnection(_conectionString))
             {
                 string query = "SELECT * FROM Usuarios";
-                var usuarios = await cnn.QueryAsync<UsuarioModel>("SELECT * FROM Usuarios");
+                var usuarios = await cnn.QueryAsync<Usuario>("SELECT * FROM Usuarios");
                 return usuarios;
             }
         }
         //method to get a Usuario by id from database
-        public static async Task<UsuarioModel> GetById(string id)
+        public static async Task<Usuario> GetById(string id)
         {
             using (var cnn = new SqliteConnection(_conectionString))
             {
                 string query = "SELECT * FROM Usuarios WHERE Id = @Id";
-                var usuario = await cnn.QueryFirstOrDefaultAsync<UsuarioModel>(query, new { Id = id });
+                var usuario = await cnn.QueryFirstOrDefaultAsync<Usuario>(query, new { Id = id });
                 return usuario;
             }
         }
         //method to insert a Usuario in database
-        public static async Task<int> Insert(UsuarioModel usuario)
+        public static async Task<int> Insert(Usuario usuario)
         {
             using (var cnn = new SqliteConnection(_conectionString))
             {
@@ -51,7 +51,7 @@ namespace DesenvolvedorNET.Repositories
             }
         }
         //method to update a Usuario in database
-        public static async Task<int> Update(UsuarioModel usuario)
+        public static async Task<int> Update(Usuario usuario)
         {
             using (var cnn = new SqliteConnection(_conectionString))
             {
