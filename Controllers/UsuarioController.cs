@@ -1,32 +1,38 @@
 ﻿using DesenvolvedorNET.Models;
 using DesenvolvedorNET.Repositories;
+using DesenvolvedorNET.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DesenvolvedorNET.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class UsuarioController : ControllerBase
+    public class UsuarioController : Controller
     {
-        public UsuarioController()
+        public ViewResult Index()
         {
-        }
-        [HttpGet]
-        public IActionResult Index()
-        {
+            ViewData["Title"] = "Usuários";
             //get all Usuarios from database
             var list = UsuarioRepository.GetAll();
             //convert ienumerable to list
-            List<UsuarioModel> usuarios = list.Result.ToList();
-            return Ok(usuarios);
+            List<Usuario> usuarios = list.Result.ToList();
+            ViewData["Usuarios"] = usuarios;
+            return View(usuarios);
         }
-        [HttpGet("{id}")]
-        public IActionResult Index(string id)
+        // GET: /Usuario/Details/5
+        public ViewResult Details(string id)
         {
-            //get a Usuario by id from database
+            UsuarioDetailsViewModel usuarioViewModel = new UsuarioDetailsViewModel()
+            {
+                Usuario = UsuarioRepository.GetById(id).Result,
+                Title = "Usuário - detalhes"
+            };
+
+
+            ViewBag.Title = "Usuário - detalhes";
+            //get usuario from database by id
             var resul = UsuarioRepository.GetById(id);
-            UsuarioModel usuario = resul.Result;
-            return Ok(usuario);
+            Usuario usuario = resul.Result;
+            ViewData["Usuario"] = usuario;
+            return View("Details", usuarioViewModel);
         }
     }
 }

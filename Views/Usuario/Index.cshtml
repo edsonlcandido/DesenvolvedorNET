@@ -1,0 +1,27 @@
+﻿@model List<DesenvolvedorNET.Models.Usuario>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var usuarios = ViewData["Usuarios"] as List<DesenvolvedorNET.Models.Usuario>;
+}
+<h1>@ViewData["Title"]</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    @foreach (var usuario in Model)
+    {
+        <tr>
+            <td>@usuario.Id</td>
+            <td>@usuario.Nome</td>
+            <td>
+                <a href="/usuario/details/@usuario.Id">Detalhes</a> |
+                <a href="/usuario/edit/@usuario.Id">Editar</a> |
+                <a>Excluir</a>
+            </td>
+        </tr>
+    }
+</table>

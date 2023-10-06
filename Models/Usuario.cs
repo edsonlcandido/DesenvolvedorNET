@@ -3,7 +3,7 @@
 namespace DesenvolvedorNET.Models
 {
 
-    public class UsuarioModel
+    public class Usuario
     {
         //use data anotations to set key
         [Key]
