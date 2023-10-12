@@ -1,0 +1,7 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    @Html.ActionLink("Listar", "","usuario") | <a href="@Url.Action("create","usuario")">Cadastrar</a>
+    @RenderBody()
+</div>

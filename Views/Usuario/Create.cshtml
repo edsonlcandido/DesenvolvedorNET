@@ -1,0 +1,23 @@
+﻿@using DesenvolvedorNET.ViewModels
+@using DesenvolvedorNET.Models
+@model Usuario
+@{
+    Layout = "_Layout.cshtml";
+    ViewBag.Title = "Usuário - novo";
+}
+<h1>@ViewBag.Title</h1>
+@using (Html.BeginForm("create", "usuario", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Nome, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Nome)
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Cadastrar" class="btn btn-default" />
+        </div>
+    </div>
+}

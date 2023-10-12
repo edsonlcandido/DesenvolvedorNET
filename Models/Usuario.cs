@@ -5,8 +5,8 @@ namespace DesenvolvedorNET.Models
 
     public class Usuario
     {
-        //use data anotations to set key
-        [Key]
+        //the id is required and the range is the same of a GUId
+        [Required, StringLength(36)]
         public string Id { get; set; }
         //use data anotations to set required min length 3 and max length 50
         [Required, MinLength(3), MaxLength(50)]
