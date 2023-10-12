@@ -34,5 +34,34 @@ namespace DesenvolvedorNET.Controllers
             ViewData["Usuario"] = usuario;
             return View("Details", usuarioViewModel);
         }
+        // GET: /Usuario/Create
+        public ViewResult Create()
+        {
+            
+            return View("Create");
+        }
+        // POST: /Usuario/Create
+        [HttpPost]
+        public async Task<IActionResult> Create(Usuario usuario)
+        {
+            //create a new Guid for usuario id
+            string id = Guid.NewGuid().ToString();
+            usuario.Id = id;
+            ModelState.Clear();
+            //revalidate ModelState
+            TryValidateModel(usuario);
+
+            //validate usuario model 
+            if (ModelState.IsValid)
+            {
+                int RowNum = await UsuarioRepository.Insert(usuario);
+                if (RowNum == 1)
+                {
+                    return RedirectToAction("details", new { id = usuario.Id });
+                }
+                return View("Create");
+            }
+            return View("Create");            
+        }
     }
 }

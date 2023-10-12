@@ -1,6 +1,6 @@
 ﻿@model List<DesenvolvedorNET.Models.Usuario>
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "_Layout.cshtml";
     var usuarios = ViewData["Usuarios"] as List<DesenvolvedorNET.Models.Usuario>;
 }
 <h1>@ViewData["Title"]</h1>
@@ -18,8 +18,8 @@
             <td>@usuario.Id</td>
             <td>@usuario.Nome</td>
             <td>
-                <a href="/usuario/details/@usuario.Id">Detalhes</a> |
-                <a href="/usuario/edit/@usuario.Id">Editar</a> |
+                <a href="@Url.Action("details","usuario", new{id = usuario.Id})">Detalhes</a> |
+                <a >Editar</a> |
                 <a>Excluir</a>
             </td>
         </tr>

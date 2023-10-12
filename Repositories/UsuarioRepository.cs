@@ -45,7 +45,7 @@ namespace DesenvolvedorNET.Repositories
         {
             using (var cnn = new SqliteConnection(_conectionString))
             {
-                string query = "INSERT INTO Usuarios (Nome) VALUES (@Nome)";
+                string query = "INSERT INTO Usuarios (Id, Nome) VALUES (@Id, @Nome)";
                 var result = await cnn.ExecuteAsync(query, usuario);
                 return result;
             }
