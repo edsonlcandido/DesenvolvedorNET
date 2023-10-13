@@ -47,6 +47,13 @@ namespace DesenvolvedorNET
 
             var app = builder.Build();
 
+            //migrate dbcontext
+            using (var scope = app.Services.CreateScope())
+            {
+                var db = scope.ServiceProvider.GetRequiredService<DesenvolvedorNETContext>();
+                db.Database.Migrate();
+            }
+
             IHostEnvironment env = app.Services.GetService<IHostEnvironment>();
 
             if (env.IsDevelopment())
