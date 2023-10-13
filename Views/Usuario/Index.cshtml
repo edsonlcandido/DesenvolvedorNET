@@ -19,8 +19,8 @@
             <td>@usuario.Nome</td>
             <td>
                 <a href="@Url.Action("details","usuario", new{id = usuario.Id})">Detalhes</a> |
-                <a >Editar</a> |
-                <a>Excluir</a>
+                @Html.ActionLink("Editar","edit","usuario", new{id = usuario.Id})  |
+                <a href="/usuario/delete/@usuario.Id">Deletar</a> 
             </td>
         </tr>
     }

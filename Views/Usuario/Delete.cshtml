@@ -1,0 +1,19 @@
+﻿@using DesenvolvedorNET.ViewModels;
+@model UsuarioDeleteViewModel
+@{
+    Layout = "_Layout.cshtml";
+    ViewBag.Title = "Usuário - deletar";
+}
+<h1>@ViewBag.Title</h1>
+@using (Html.BeginForm("delete", "usuario", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <div class="form-group">
+        @Html.HiddenFor(m => m.Usuario.Id)
+        <p>Confirma que deseja deletar o usuario @Model.Usuario.Nome?</p>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Deletar" class="btn btn-default" />
+        </div>
+    </div>
+}

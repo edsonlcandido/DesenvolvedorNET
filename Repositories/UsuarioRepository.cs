@@ -61,13 +61,12 @@ namespace DesenvolvedorNET.Repositories
             }
         }   
         //method to delete a Usuario in database
-        public static async Task<int> Delete(string id)
+        public static async Task Delete(string id)
         {
             using (var cnn = new SqliteConnection(_conectionString))
             {
                 string query = "DELETE FROM Usuarios WHERE Id = @Id";
-                var result = await cnn.ExecuteAsync(query, new { Id = id });
-                return result;
+                await cnn.ExecuteAsync(query, new { Id = id });                
             }
         }
     }
