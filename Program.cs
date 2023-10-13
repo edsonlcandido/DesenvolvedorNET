@@ -6,6 +6,9 @@ using Microsoft.Data.Sqlite;
 using EvolveDb;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
+using DesenvolvedorNET.Repositories;
+using DesenvolvedorNET.Db;
+using Microsoft.EntityFrameworkCore;
 
 namespace DesenvolvedorNET
 { 
@@ -34,6 +37,12 @@ namespace DesenvolvedorNET
             builder.Services.AddMvc(opttions =>
             {
                 opttions.EnableEndpointRouting = false;
+            });
+
+            //configure the connection string to database
+            builder.Services.AddDbContext<DesenvolvedorNETContext>(options =>
+            {
+                options.UseSqlite($@"Data Source={System.IO.Path.Combine(outputPath, "DesenvolvedorNET.db")}");
             });
 
             var app = builder.Build();

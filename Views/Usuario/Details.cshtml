@@ -4,13 +4,20 @@
     Layout = "_Layout.cshtml";
     ViewBag.Title = Model.Title;
 }
-<h1>@ViewBag.Title</h1>
-<table>
-    <tr>
-        <td>Id</td>
-        <td>@Model.Usuario.Id</td>
-    </tr>
-    <tr>
-        <td>Nome</td>
-        <td>@Model.Usuario.Nome</td>
-</table>
+<div class="row">
+    <div class="container is-fluid">
+        <h1 class="is-size-1">@ViewBag.Title</h1>
+        <table class="table is-bordered">
+            <tbody>
+                <tr>
+                    <td>Id</td>
+                    <td>@Model.Usuario.Id</td>
+                </tr>
+                <tr>
+                    <td>Nome</td>
+                    <td>@Model.Usuario.Nome</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

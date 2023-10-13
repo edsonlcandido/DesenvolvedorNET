@@ -1,17 +1,21 @@
 ﻿@using DesenvolvedorNET.ViewModels
 @using DesenvolvedorNET.Models
-@model UsuarioCreateViewModel
+@model UsuarioEditViewModel
 @{
     Layout = "_Layout.cshtml";
-    ViewBag.Title = "Usuário - novo";
+    ViewBag.Title = "Usuário - atualização";
 }
+
 <div class="row">
     <div class="container is-fluid">
         <h1 class="is-size-1">@ViewBag.Title</h1>
-        @using (Html.BeginForm("create", "usuario", FormMethod.Post))
+        @using (Html.BeginForm("edit", "usuario", FormMethod.Post, new { @class = "form-horizontal" }))
         {
+                //input field id is hidden
+
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
+                    @Html.HiddenFor(m => m.Usuario.Id)
                     @Html.LabelFor(m => m.Usuario.Nome, new { @class = "label" })
                 </div>
                 <div class="field-body">
@@ -23,12 +27,13 @@
                     </div>
                 </div>
             </div>
+
             <div class="field is-horizontal">
                 <div class="field-label"></div>
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <input type="submit" value="Cadastrar" class="button is-primary" />
+                            <input type="submit" value="Atualizar" class="button is-primary" />
                         </div>
                     </div>
                 </div>
