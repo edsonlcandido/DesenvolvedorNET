@@ -31,7 +31,7 @@ Aplicando as principais tecnologias desse ecossistema.
 - estilizar a pagina de listagem de usuarios
 - utilizar Entity Framework Core para o novo modelo Empregado
 - pagina [/empregado](/empregado) mostra todos os empregados cadastrados
-- - corrigir departamento pelo Enum Departamento
+- - [ ] corrigir departamento pelo Enum Departamento
 - [ ] criar um endpoint /api/empregado/{id} que retorne um empregado específico
 - [ ] pagina de detalhes do empregado
 - [ ] criar operação de adicionar empregado
