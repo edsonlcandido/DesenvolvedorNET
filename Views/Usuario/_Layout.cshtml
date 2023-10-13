@@ -1,7 +1,11 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<style>
+    .table-container {
+        margin-top: 20px;
+    }
+</style>
 <nav class="navbar container is-fluid is-dark" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -35,6 +39,6 @@
     </div>
 </nav>
 
-<div class="container is-fluid">    
+<div>    
     @RenderBody()
 </div>
