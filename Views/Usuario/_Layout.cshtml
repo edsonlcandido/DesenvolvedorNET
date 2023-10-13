@@ -1,7 +1,40 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div>
-    @Html.ActionLink("Listar", "","usuario") | <a href="@Url.Action("create","usuario")">Cadastrar</a>
+
+<nav class="navbar container is-fluid is-dark" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+            <a href="@Url.Action("Index", "Home")" class="navbar-item">
+                <span class="material-symbols-outlined">
+                    home
+                </span> Home
+            </a>
+            <a href="@Url.Action("", "Usuario")" class="navbar-item">
+                <span class="material-symbols-outlined">
+                    group
+                </span>Usuários
+            </a>
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <!-- Se houver autenticação, coloque os botões de autenticação aqui -->
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container is-fluid">    
     @RenderBody()
 </div>

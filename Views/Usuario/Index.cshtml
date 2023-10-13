@@ -3,8 +3,13 @@
     Layout = "_Layout.cshtml";
     var usuarios = ViewData["Usuarios"] as List<DesenvolvedorNET.Models.Usuario>;
 }
-<h1>@ViewData["Title"]</h1>
-<table>
+<h1 class="is-size-1">@ViewData["Title"]</h1>
+<a href="@Url.Action("create","usuario")" class="button is-primary my-3">
+    <span class="material-symbols-outlined">
+        add
+    </span> Cadastrar
+</a>
+<table class="table is-bordered is-fullwidth">
     <thead>
         <tr>
             <th>Id</th>
@@ -18,9 +23,21 @@
             <td>@usuario.Id</td>
             <td>@usuario.Nome</td>
             <td>
-                <a href="@Url.Action("details","usuario", new{id = usuario.Id})">Detalhes</a> |
-                @Html.ActionLink("Editar","edit","usuario", new{id = usuario.Id})  |
-                <a href="/usuario/delete/@usuario.Id">Deletar</a> 
+                <a href="@Url.Action("details","usuario", new{id = usuario.Id})" class="button is-info">
+                    <span class="material-symbols-outlined">
+                        visibility
+                    </span> Detalhes
+                </a>
+                <a href="@Url.Action("edit","usuario", new{id = usuario.Id})" class="button is-warning">
+                    <span class="material-symbols-outlined">
+                        edit
+                    </span> Editar
+                </a>
+                <a href="/usuario/delete/@usuario.Id" class="button is-danger">
+                    <span class="material-symbols-outlined">
+                        delete
+                    </span> Deletar
+                </a>
             </td>
         </tr>
     }

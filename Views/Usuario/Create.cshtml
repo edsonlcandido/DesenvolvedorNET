@@ -5,19 +5,30 @@
     Layout = "_Layout.cshtml";
     ViewBag.Title = "Usuário - novo";
 }
-<h1>@ViewBag.Title</h1>
-@using (Html.BeginForm("create", "usuario", FormMethod.Post, new { @class = "form-horizontal" }))
+<h1 class="is-size-1">@ViewBag.Title</h1>
+@using (Html.BeginForm("create", "usuario", FormMethod.Post))
 {
-    <div class="form-group">
-        @Html.LabelFor(m => m.Usuario.Nome, new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Usuario.Nome, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Usuario.Nome)
+    <div class="field is-horizontal">
+        <div class="field-label is-normal">
+            @Html.LabelFor(m => m.Usuario.Nome, new { @class = "label" })
         </div>
+        <div class="field-body">
+            <div class="field">
+                <div class="control">
+                    @Html.TextBoxFor(m => m.Usuario.Nome, new { @class = "input" })
+                    @Html.ValidationMessageFor(m => m.Usuario.Nome,"",new {@class = "help is-danger"})
+                </div>
+            </div>
+        </div>        
     </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Cadastrar" class="btn btn-default" />
+    <div class="field is-horizontal">
+        <div class="field-label"></div>
+        <div class="field-body">
+            <div class="field">
+                <div class="control">
+                    <input type="submit" value="Cadastrar" class="button is-primary" />
+                </div>                
+            </div>
         </div>
     </div>
 }
