@@ -1,0 +1,54 @@
+﻿@using DesenvolvedorNET.Models;
+@using DesenvolvedorNET.ViewModels
+@model EmpregadoIndexViewModel
+@{
+    Layout = "_Layout.cshtml";
+    ViewBag.Title = Model.Title;
+}
+<div class="row">
+    <div class="container is-fluid">
+        <h1 class="is-size-1">Empregados</h1>
+        <a href="@Url.Action("create","empregado")" class="button is-primary my-3 is-static">
+            <span class="material-symbols-outlined">
+                add
+            </span> Cadastrar
+        </a>
+        <table class="table is-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Departamento</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            @foreach (Empregado emp in Model.Empregados)
+            {
+                <tr>
+                    <td>@emp.Id</td>
+                    <td>@emp.Nome</td>
+                    <td>@emp.Email</td>
+                    <td>@emp.Departamento</td>
+                    <td>
+                        <a href="@Url.Action("details","empregado", new{id = emp.Id})" class="button is-info is-static">
+                            <span class="material-symbols-outlined">
+                                visibility
+                            </span> Detalhes
+                        </a>
+                        <a href="@Url.Action("edit","empregado", new{id =emp.Id})" class="button is-warning is-static">
+                            <span class="material-symbols-outlined">
+                                edit
+                            </span> Editar
+                        </a>
+                        <a href="/usuario/delete/@emp.Id" class="button is-danger is-static">
+                            <span class="material-symbols-outlined">
+                                delete
+                            </span> Deletar
+                        </a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

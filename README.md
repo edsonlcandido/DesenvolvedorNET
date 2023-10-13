@@ -28,4 +28,12 @@ Aplicando as principais tecnologias desse ecossistema.
 - criar operação de adicionar usuario
 - criar operação de editar um usuario
 - deletar um usuario
-- [ ] estilizar a pagina de listagem de usuarios
+- estilizar a pagina de listagem de usuarios
+- utilizar Entity Framework Core para o novo modelo Empregado
+- pagina [/empregado](/empregado) mostra todos os empregados cadastrados
+- - corrigir departamento pelo Enum Departamento
+- [ ] criar um endpoint /api/empregado/{id} que retorne um empregado específico
+- [ ] pagina de detalhes do empregado
+- [ ] criar operação de adicionar empregado
+- [ ] criar operação de editar um empregado
+- [ ] deletar um empregado
