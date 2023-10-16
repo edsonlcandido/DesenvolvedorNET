@@ -26,5 +26,15 @@ namespace DesenvolvedorNET.Controllers
             empregadoIndexViewModel.Empregados = list.ToList();
             return View(empregadoIndexViewModel);
         }
+
+        public async Task<IActionResult> Create()
+        {
+            EmpregadoCreateViewModel empregadoCreateViewModel = new EmpregadoCreateViewModel()
+            {
+                Title = "Empregado - novo"
+            };
+            return View(empregadoCreateViewModel);
+        }
+
     }
 }

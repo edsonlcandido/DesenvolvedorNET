@@ -1,0 +1,84 @@
+﻿@using DesenvolvedorNET.ViewModels
+@using DesenvolvedorNET.Models
+@using Microsoft.AspNetCore.Mvc.Rendering
+@model DesenvolvedorNET.ViewModels.EmpregadoCreateViewModel
+
+@{
+    Layout = "_Layout.cshtml";
+    ViewBag.Title = Model.Title;
+}
+<div class="row">
+    <div class="container is-fluid">
+        <h1 class="is-size-1">@ViewBag.Title</h1>
+        @*<form action="" method="post">*@
+        @using (Html.BeginForm("create", "empregado", FormMethod.Post))
+        {
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    @Html.LabelFor(m => m.Empregado.Nome, new { @class = "label" })
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            @Html.TextBoxFor(m => m.Empregado.Nome, new { @class = "input" })
+                            @*<input class="input" type="text">*@
+                        </div>
+                        @Html.ValidationMessageFor(m => m.Empregado.Nome, "", new { @class = "help is-danger" })
+                        @*
+                    <p class="help is-danger">
+                    This field is required
+                    </p>
+                    *@
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    @Html.LabelFor(m => m.Empregado.Email, new { @class = "label" })
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            @Html.TextBoxFor(m => m.Empregado.Email, new { @class = "input" })
+                        </div>
+                        @Html.ValidationMessageFor(m => m.Empregado.Email, "", new { @class = "help is-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Departamento</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <div class="select">
+                                <select>
+                                    <option>Selecione um departamento</option>
+                                    @*use getenumselectList for put options*@
+                                    @foreach (var item in Html.GetEnumSelectList(typeof(DesenvolvedorNET.Models.Departamento)))
+                                    {
+                                        <option value="@item.Value">@item.Text</option>
+                                    } 
+                                </select>
+                            </div>
+                        </div>
+                        @Html.ValidationMessageFor(m => m.Empregado.Departamento, "", new { @class = "help is-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <input type="submit" value="Cadastrar" class="button is-primary" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        @* </form>*@
+    </div>
+</div>
