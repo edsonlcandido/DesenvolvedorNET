@@ -1,4 +1,5 @@
 ﻿using DesenvolvedorNET.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace DesenvolvedorNET.ViewModels
 {
@@ -6,5 +7,6 @@ namespace DesenvolvedorNET.ViewModels
     {
         public string Title { get; set; }
         public Empregado Empregado { get; set; }
+        public List<SelectListItem> Departamentos { get; set; }
     }
 }

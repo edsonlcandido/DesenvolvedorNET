@@ -1,12 +1,8 @@
 ﻿namespace DesenvolvedorNET.Models
 {
-    public enum Departamento
+    public class Departamento
     {
-        TI,
-        RH,
-        Financeiro,
-        Comercial,
-        Marketing,
-        Administrativo
+        public int Id { get; set; }
+        public string Nome { get; set;}
     }
 }

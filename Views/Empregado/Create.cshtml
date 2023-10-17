@@ -1,7 +1,9 @@
-﻿@using DesenvolvedorNET.ViewModels
+﻿@using DesenvolvedorNET.Repositories;
+@using DesenvolvedorNET.ViewModels
 @using DesenvolvedorNET.Models
 @using Microsoft.AspNetCore.Mvc.Rendering
 @model DesenvolvedorNET.ViewModels.EmpregadoCreateViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
     Layout = "_Layout.cshtml";
@@ -47,19 +49,14 @@
             </div>
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
-                    <label class="label">Departamento</label>
+                    @Html.LabelFor(m => m.Empregado.Departamento, new { @class = "label" })
                 </div>
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
                             <div class="select">
-                                <select>
-                                    <option>Selecione um departamento</option>
-                                    @*use getenumselectList for put options*@
-                                    @foreach (var item in Html.GetEnumSelectList(typeof(DesenvolvedorNET.Models.Departamento)))
-                                    {
-                                        <option value="@item.Value">@item.Text</option>
-                                    } 
+                                <select class="select" asp-for="@Model.Empregado.Departamento" asp-items="@Model.Departamentos">
+                                <option value="">Selecione um departamento</option>
                                 </select>
                             </div>
                         </div>

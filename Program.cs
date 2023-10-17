@@ -40,7 +40,7 @@ namespace DesenvolvedorNET
             });
 
             //configure the connection string to database
-            builder.Services.AddDbContext<DesenvolvedorNETContext>(options =>
+            builder.Services.AddDbContext<EmpregadosContext>(options =>
             {
                 options.UseSqlite($@"Data Source={System.IO.Path.Combine(outputPath, "DesenvolvedorNET.db")}");
             });
@@ -50,7 +50,7 @@ namespace DesenvolvedorNET
             //migrate dbcontext
             using (var scope = app.Services.CreateScope())
             {
-                var db = scope.ServiceProvider.GetRequiredService<DesenvolvedorNETContext>();
+                var db = scope.ServiceProvider.GetRequiredService<EmpregadosContext>();
                 db.Database.Migrate();
             }
 

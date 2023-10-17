@@ -13,7 +13,7 @@ namespace DesenvolvedorNET.Repositories
         //create a method to update a Empregado in database
         //create a method to delete a Empregado in database
         //Empregado model is in Models/EmpregadoModel.cs
-        public static async Task<IEnumerable<Empregado>> GetAll(DesenvolvedorNETContext context)
+        public static async Task<IEnumerable<Empregado>> GetAll(EmpregadosContext context)
         {
             return await context.Empregados.ToListAsync();
         }
