@@ -17,12 +17,7 @@ namespace DesenvolvedorNET.Db
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<Empregado>().ToTable("Empregados");
-            modelBuilder.Entity<Empregado>().HasKey(e => e.Id);
-            modelBuilder.Entity<Empregado>().HasOne(e => e.Departamento);
-            modelBuilder.Entity<Departamento>().ToTable("Departamentos");
-            modelBuilder.Entity<Departamento>().HasKey(d => d.Id);
+            modelBuilder.Entity<Empregado>();
             //seed data for departamentos
             modelBuilder.Entity<Departamento>().HasData(
                 new Departamento { Id = 1, Nome = "TI" },

@@ -15,7 +15,8 @@ namespace DesenvolvedorNET.Repositories
         //Empregado model is in Models/EmpregadoModel.cs
         public static async Task<IEnumerable<Empregado>> GetAll(EmpregadosContext context)
         {
-            return await context.Empregados.ToListAsync();
+            //get empregados from database, LINQ query for get departamentos
+            return await context.Empregados.Include(e => e.Departamento).ToListAsync();
         }
         public static async Task<Empregado> GetById(int id, EmpregadosContext context)
         {

@@ -38,6 +38,6 @@ Aplicando as principais tecnologias desse ecossistema.
 - [ ] criar um endpoint /api/empregado/{id} que retorne um empregado específico
 - [ ] pagina de detalhes do empregado
 - [ ] criar operação de adicionar empregado
-	- [ ] corrigir buscar departamento do empregado
+	- corrigir buscar departamento do empregado
 - [ ] criar operação de editar um empregado
 - [ ] deletar um empregado
