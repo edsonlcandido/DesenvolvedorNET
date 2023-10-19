@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using DesenvolvedorNET.Repositories;
 using DesenvolvedorNET.Db;
 using Microsoft.EntityFrameworkCore;
+using DesenvolvedorNET.Models;
 
 namespace DesenvolvedorNET
 { 
@@ -70,6 +71,13 @@ namespace DesenvolvedorNET
             staticFileOptions.ServeUnknownFileTypes = false;
             app.UseStaticFiles(staticFileOptions);
             app.UseMvcWithDefaultRoute();
+
+            Empregado empregado;
+            using (var scope = app.Services.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<EmpregadosContext>();
+                empregado = EmpregadoRepository.GetById(1, context).Result;
+            }                
             app.Run();
         }
     }

@@ -20,7 +20,11 @@ namespace DesenvolvedorNET.Repositories
         }
         public static async Task<Empregado> GetById(int id, EmpregadosContext context)
         {
-            return await context.Empregados.FindAsync(id);
+            //get empregado from database, LINQ query for get empregado
+
+            return await context.Empregados.Where(e=> e.Id == id)
+                .Include(e=>e.Departamento)
+                .FirstOrDefaultAsync();
         }
         public static async Task Add(Empregado empregado, EmpregadosContext context)
         {
