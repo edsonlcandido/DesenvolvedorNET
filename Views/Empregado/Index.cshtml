@@ -29,7 +29,7 @@
                     <td>@emp.Id</td>
                     <td>@emp.Nome</td>
                     <td>@emp.Email</td>
-                    <td>@emp.Departamento</td>
+                    <td>@emp.Departamento.Nome</td>
                     <td>
                         <a href="@Url.Action("details","empregado", new{id = emp.Id})" class="button is-info is-static">
                             <span class="material-symbols-outlined">

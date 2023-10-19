@@ -13,5 +13,9 @@ namespace DesenvolvedorNET.Repositories
         {                
                 return await context.Departamentos.ToListAsync();            
         }
+        public static async Task<Departamento> GetById(int id, EmpregadosContext context)
+        {
+            return await context.Departamentos.FindAsync(id);
+        }
     }
 }

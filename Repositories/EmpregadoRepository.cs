@@ -17,5 +17,14 @@ namespace DesenvolvedorNET.Repositories
         {
             return await context.Empregados.ToListAsync();
         }
+        public static async Task<Empregado> GetById(int id, EmpregadosContext context)
+        {
+            return await context.Empregados.FindAsync(id);
+        }
+        public static async Task Add(Empregado empregado, EmpregadosContext context)
+        {
+            context.Empregados.Add(empregado);
+            await context.SaveChangesAsync();
+        }
     }
 }

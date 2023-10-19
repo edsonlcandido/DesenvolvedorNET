@@ -45,5 +45,38 @@ namespace DesenvolvedorNET.Controllers
             return View(empregadoCreateViewModel);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Create(EmpregadoCreateViewModel empregadoCreateViewModel)
+        {
+            Empregado empregado = new Empregado()
+            {
+                Nome = empregadoCreateViewModel.Empregado.Nome,
+                Email = empregadoCreateViewModel.Empregado.Email,
+                DepartamentoId = empregadoCreateViewModel.Empregado.DepartamentoId,
+                Departamento = await DepartamentoRepository.GetById(empregadoCreateViewModel.Empregado.DepartamentoId, _dbContext)
+            };
+            ModelState.Clear();
+            //revalidate ModelState
+            TryValidateModel(empregado);
+            if (ModelState.IsValid)
+            {
+                //convert viewmodel to model
+                
+                //add Empregado to database
+                await EmpregadoRepository.Add(empregado, _dbContext);
+                return RedirectToAction("Index","Empregado");
+            }
+            empregadoCreateViewModel.Title = "Empregado - novo";
+            //get all Departamentos from database
+            var list = await DepartamentoRepository.GetAll(_dbContext);
+            //convert ienumerable to list
+            empregadoCreateViewModel.Departamentos = new List<SelectListItem>();
+            foreach (var item in list.ToList())
+            {
+                empregadoCreateViewModel.Departamentos.Add(new SelectListItem { Value = item.Id.ToString(), Text = item.Nome });
+            }
+            return View(empregadoCreateViewModel);
+        }
+
     }
 }

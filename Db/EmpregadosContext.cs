@@ -20,6 +20,7 @@ namespace DesenvolvedorNET.Db
 
             modelBuilder.Entity<Empregado>().ToTable("Empregados");
             modelBuilder.Entity<Empregado>().HasKey(e => e.Id);
+            modelBuilder.Entity<Empregado>().HasOne(e => e.Departamento);
             modelBuilder.Entity<Departamento>().ToTable("Departamentos");
             modelBuilder.Entity<Departamento>().HasKey(d => d.Id);
             //seed data for departamentos
