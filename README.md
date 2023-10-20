@@ -16,7 +16,7 @@ Aplicando as principais tecnologias desse ecossistema.
 - ASP.NET MVC		
 - Bulma CSS
 - Entity Framework Core
-
+- LINQ
 
 ## Roadmap
 
