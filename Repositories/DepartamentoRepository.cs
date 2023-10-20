@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-
 namespace DesenvolvedorNET.Repositories
 {
     public class DepartamentoRepository
@@ -13,9 +12,10 @@ namespace DesenvolvedorNET.Repositories
         {                
                 return await context.Departamentos.ToListAsync();            
         }
-        public static async Task<Departamento> GetById(int id, EmpregadosContext context)
+
+        internal static Task<Departamento> GetById(int departamentoId, EmpregadosContext dbContext)
         {
-            return await context.Departamentos.FindAsync(id);
+            return dbContext.Departamentos.Where(d => d.Id == departamentoId).FirstOrDefaultAsync();
         }
     }
 }

@@ -78,5 +78,67 @@ namespace DesenvolvedorNET.Controllers
             return View(empregadoCreateViewModel);
         }
 
+        public ViewResult Edit(int id)
+        {
+            EmpregadoEditViewModel empregadoEditViewModel = new EmpregadoEditViewModel()
+            {
+                Title = "Empregado - editar"
+            };
+            //get Empregado from database
+            empregadoEditViewModel.Empregado = EmpregadoRepository.GetById(id, _dbContext).Result;
+            //get all Departamentos from database
+            var list = DepartamentoRepository.GetAll(_dbContext).Result;
+            //convert ienumerable to list
+            empregadoEditViewModel.Departamentos = new List<SelectListItem>();
+            foreach (var item in list.ToList())
+            {
+                empregadoEditViewModel.Departamentos.Add(new SelectListItem { Value = item.Id.ToString(), Text = item.Nome });
+            }
+            return View(empregadoEditViewModel);
+        }
+
+        public async Task<IActionResult> Details(int id)
+        {
+            EmpregadoDetailsViewModel empregadoDetailsViewModel = new EmpregadoDetailsViewModel()
+            {
+                Title = "Empregado - detalhes"
+            };
+            //get Empregado from database
+            empregadoDetailsViewModel.Empregado = await EmpregadoRepository.GetById(id, _dbContext);
+            return View(empregadoDetailsViewModel);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(EmpregadoEditViewModel empregadoEditViewModel)
+        {
+            Empregado empregado = new Empregado()
+            {
+                Id = empregadoEditViewModel.Empregado.Id,
+                Nome = empregadoEditViewModel.Empregado.Nome,
+                Email = empregadoEditViewModel.Empregado.Email,
+                DepartamentoId = empregadoEditViewModel.Empregado.DepartamentoId,
+                Departamento = await DepartamentoRepository.GetById(empregadoEditViewModel.Empregado.DepartamentoId, _dbContext)
+            };
+            ModelState.Clear();
+            //revalidate ModelState
+            TryValidateModel(empregado);
+            if (ModelState.IsValid)
+            {
+                //convert viewmodel to model
+                
+                //update Empregado in database
+                await EmpregadoRepository.Update(empregado, _dbContext);
+                return RedirectToAction("Index", "Empregado");
+            }
+            empregadoEditViewModel.Title = "Empregado - editar";
+            //get all Departamentos from database
+            var list = await DepartamentoRepository.GetAll(_dbContext);
+            //convert ienumerable to list
+            empregadoEditViewModel.Departamentos = new List<SelectListItem>();
+            foreach (var item in list.ToList())
+            {
+                empregadoEditViewModel.Departamentos.Add(new SelectListItem { Value = item.Id.ToString(), Text = item.Nome });
+            }
+            return View(empregadoEditViewModel);
+        }
     }
 }

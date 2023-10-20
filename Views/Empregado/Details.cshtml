@@ -1,0 +1,30 @@
+﻿@using DesenvolvedorNET.ViewModels;
+@model EmpregadoDetailsViewModel;
+@{
+    Layout = "_Layout.cshtml";
+    ViewBag.Title = Model.Title;
+}
+
+<div class="row">
+    <div class="container is-fluid">
+        <div class="is-size-1">@Model.Title</div>
+        <table class="table is-bordered">
+            <tbody>
+                <tr>
+                    <td>Id</td>
+                    <td>@Model.Empregado.Id</td>
+                </tr>
+                <tr>
+                    <td>Nome</td>
+                    <td>@Model.Empregado.Nome</td>
+                </tr>
+                <tr>
+                    <td>email</td>
+                    <td>@Model.Empregado.Email</td>
+                </tr>
+<tr>
+                    <td>Departamento</td>
+                    <td>@Model.Empregado.Departamento.Nome</td>
+            </tbody>
+    </div>
+</div>

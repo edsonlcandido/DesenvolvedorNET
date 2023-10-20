@@ -31,12 +31,12 @@
                     <td>@emp.Email</td>
                     <td>@emp.Departamento.Nome</td>
                     <td>
-                        <a href="@Url.Action("details","empregado", new{id = emp.Id})" class="button is-info is-static">
+                        <a href="@Url.Action("details","empregado", new{id = emp.Id})" class="button is-info">
                             <span class="material-symbols-outlined">
                                 visibility
                             </span> Detalhes
                         </a>
-                        <a href="@Url.Action("edit","empregado", new{id =emp.Id})" class="button is-warning is-static">
+                        <a href="@Url.Action("edit","empregado", new{id =emp.Id})" class="button is-warning">
                             <span class="material-symbols-outlined">
                                 edit
                             </span> Editar

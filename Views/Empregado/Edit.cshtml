@@ -1,0 +1,67 @@
+﻿@using DesenvolvedorNET.ViewModels;
+@model EmpregadoEditViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout.cshtml";
+    ViewBag.Title = Model.Title;
+}
+<div class="row">
+    <div class="container is-fluid">
+        <h1 class="is-size-1">@ViewBag.Title</h1>
+        @using (Html.BeginForm("edit", "empregado", FormMethod.Post))
+        {
+            <input type="hidden" asp-for="@Model.Empregado.Id" />
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">                    
+                    @Html.LabelFor(m => m.Empregado.Nome, new { @class = "label" })
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            @Html.TextBoxFor(m=>m.Empregado.Nome, new {@class = "input"})
+                        </div>
+                        @Html.ValidationMessageFor(m=>m.Empregado.Nome,"",new{@class="help is-danger"})
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label" asp-for="@Model.Empregado.Email">Email</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" asp-for="@Model.Empregado.Email" />
+                        </div>
+                        <span asp-validation-for="@Model.Empregado.Email" class="help is-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label" asp-for="@Model.Empregado.DepartamentoId">Departmento</label>
+                </div>
+                <div class="field-body">
+                    <div class="field is-narrow">
+                        <div class="control">
+                            <div class="select is-fullwidth">
+                                <select asp-for="@Model.Empregado.DepartamentoId" asp-items="@Model.Departamentos">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal">
+                <div class="field-label"></div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <input type="submit" value="Atualizar" class="button is-primary" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

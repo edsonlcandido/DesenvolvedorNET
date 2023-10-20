@@ -31,5 +31,11 @@ namespace DesenvolvedorNET.Repositories
             context.Empregados.Add(empregado);
             await context.SaveChangesAsync();
         }
+
+        public static async Task Update(Empregado empregado, EmpregadosContext context)
+        {
+            context.Update(empregado);
+            await context.SaveChangesAsync();
+        }
     }
 }
