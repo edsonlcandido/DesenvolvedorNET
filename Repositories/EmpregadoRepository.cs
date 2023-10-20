@@ -37,5 +37,11 @@ namespace DesenvolvedorNET.Repositories
             context.Update(empregado);
             await context.SaveChangesAsync();
         }
+
+        public static async Task Delete(Empregado empregado, EmpregadosContext context)
+        {
+            context.Remove(empregado);
+            await context.SaveChangesAsync();
+        }
     }
 }

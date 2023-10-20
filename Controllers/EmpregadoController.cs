@@ -64,7 +64,8 @@ namespace DesenvolvedorNET.Controllers
                 
                 //add Empregado to database
                 await EmpregadoRepository.Add(empregado, _dbContext);
-                return RedirectToAction("Index","Empregado");
+                //redirect to this empregado index
+                return RedirectToRoute(new { controller = "Empregado", action = "Index" });
             }
             empregadoCreateViewModel.Title = "Empregado - novo";
             //get all Departamentos from database
@@ -127,7 +128,7 @@ namespace DesenvolvedorNET.Controllers
                 
                 //update Empregado in database
                 await EmpregadoRepository.Update(empregado, _dbContext);
-                return RedirectToAction("Index", "Empregado");
+                return RedirectToRoute(new { controller = "Empregado", action = "Index" });
             }
             empregadoEditViewModel.Title = "Empregado - editar";
             //get all Departamentos from database
@@ -139,6 +140,23 @@ namespace DesenvolvedorNET.Controllers
                 empregadoEditViewModel.Departamentos.Add(new SelectListItem { Value = item.Id.ToString(), Text = item.Nome });
             }
             return View(empregadoEditViewModel);
+        }
+        public ViewResult Delete([FromServices] EmpregadosContext context, int id)
+        {
+            EmpregadoDeleteViewModel empregadoDeleteViewModel = new EmpregadoDeleteViewModel()
+            {
+                Title = "Empregado - excluir",
+                Empregado = EmpregadoRepository.GetById(id, context).Result
+            };            
+            return View("Delete", empregadoDeleteViewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(EmpregadoDeleteViewModel empregadoDeleteViewModel)
+        {
+            //delete Empregado from database
+            await EmpregadoRepository.Delete(empregadoDeleteViewModel.Empregado, _dbContext);
+            return RedirectToRoute(new { controller = "Empregado", action = "Index" });
         }
     }
 }
