@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DesenvolvedorNET.Migrations
 {
-    [DbContext(typeof(DesenvolvedorNETContext))]
+    [DbContext(typeof(EmpregadosContext))]
     [Migration("20231013200511_CreationOfEmpregados")]
     partial class CreationOfEmpregados
     {

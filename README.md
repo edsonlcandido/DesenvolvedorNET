@@ -15,6 +15,8 @@ Aplicando as principais tecnologias desse ecossistema.
 - Dapper
 - ASP.NET MVC		
 - Bulma CSS
+- Entity Framework Core
+- LINQ
 
 ## Roadmap
 
@@ -32,9 +34,10 @@ Aplicando as principais tecnologias desse ecossistema.
 - utilizar Entity Framework Core para o novo modelo Empregado
 	- executar migrations do entity framework ao iniciar a aplicação
 - pagina [/empregado](/empregado) mostra todos os empregados cadastrados
-	- [ ] corrigir departamento pelo Enum Departamento
-- [ ] criar um endpoint /api/empregado/{id} que retorne um empregado específico
-- [ ] pagina de detalhes do empregado
-- [ ] criar operação de adicionar empregado
-- [ ] criar operação de editar um empregado
-- [ ] deletar um empregado
+	- listar departamentos buscando do banco de dados
+- criar um endpoint /api/empregado/{id} que retorne um empregado específico
+- pagina de detalhes do empregado
+- criar operação de adicionar empregado
+	- corrigir buscar departamento do empregado
+- criar operação de editar um empregado
+- deletar um empregado

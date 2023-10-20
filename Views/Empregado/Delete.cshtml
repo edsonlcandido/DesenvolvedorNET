@@ -1,21 +1,21 @@
 ﻿@using DesenvolvedorNET.ViewModels;
-@model UsuarioDeleteViewModel
+@model EmpregadoDeleteViewModel
 @{
     Layout = "_Layout.cshtml";
-    ViewBag.Title = "Usuário - deletar";
+    ViewBag.Title = "Empregado - deletar";
 }
 <div class="row">
     <div class="container is-fluid">
         <h1 class="is-size-1">@ViewBag.Title</h1>
-        @using (Html.BeginForm("delete", "usuario", FormMethod.Post, new { @class = "form-horizontal" }))
+        @using (Html.BeginForm("delete", "empregado", FormMethod.Post, new { @class = "form-horizontal" }))
         {
             <div class="message is-danger">
                 <div class="message-header">
                     <p>Deletar</p>
                 </div>
                 <div class="message-body">
-                    @Html.HiddenFor(m => m.Usuario.Id)
-                    <p>Confirma que deseja deletar o usuario @Model.Usuario.Nome?</p>
+                    @Html.HiddenFor(m => m.Empregado.Id)
+                    <p>Confirma que deseja deletar o empregado @Model.Empregado.Nome?</p>
                     <input type="submit" value="Deletar" class="button is-danger" />
                 </div>
             </div>
