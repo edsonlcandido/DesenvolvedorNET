@@ -64,6 +64,11 @@ namespace DesenvolvedorNET
                 developerExceptionPageOptions.SourceCodeLineCount = 6;
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+                app.UseStatusCodePagesWithReExecute("/Error/{0}");                              
+            }
 
             //create a StaticFileoptions with default values
             StaticFileOptions staticFileOptions = new StaticFileOptions();
