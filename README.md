@@ -1,5 +1,7 @@
 ﻿# Desenvolvedor ASP NET
 
+[github.com/edsonlcandido/desenvolvedornet](https://github.com/edsonlcandido/desenvolvedornet)
+
 Projeto criado para aplicar os meus conhecimentos em .NET utilizando o C#.
 
 Aplicando as principais tecnologias desse ecossistema.
@@ -41,3 +43,17 @@ Aplicando as principais tecnologias desse ecossistema.
 	- corrigir buscar departamento do empregado
 - criar operação de editar um empregado
 - deletar um empregado
+- manipular erros
+- manipular exceções
+- [ ] criar logs de registro
+- [ ] criar um contexto com login e senha usando o Identity
+- [ ] criar niveis de acesso para usuarios do sistema
+- [ ] criar ambiente de acesso restrito as seguintes funçoes de um programa de estoque
+- [	] administrar usuarios
+- [ ] cadastrar produtos
+- [ ] listar produtos
+- [ ] editar produtos
+- [ ] adcionar entrada de produtos
+- [ ] retirar produtos
+- [ ] criar um historico de movimentações 
+- [ ] transformar os endpoint numa API RESTfull

@@ -9,6 +9,15 @@
       "dotnetRunMessages": true,
       "applicationUrl": "http://localhost:5064"
     },
+    "http-prod": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      },
+      "dotnetRunMessages": false,
+      "applicationUrl": "http://localhost:5064"
+    },
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,

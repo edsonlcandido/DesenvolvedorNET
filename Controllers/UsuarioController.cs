@@ -9,6 +9,8 @@ namespace DesenvolvedorNET.Controllers
     {
         public ViewResult Index()
         {
+            //throw new Exception("Teste");
+
             ViewData["Title"] = "Usuários";
             //get all Usuarios from database
             var list = UsuarioRepository.GetAll();
@@ -20,6 +22,12 @@ namespace DesenvolvedorNET.Controllers
         // GET: /Usuario/Details/5
         public ViewResult Details(string id)
         {
+            if (UsuarioRepository.GetById(id).Result == null)
+            {
+                Response.StatusCode = 404;
+                return View("UsuarioNotFound", id);
+            }
+
             UsuarioDetailsViewModel usuarioViewModel = new UsuarioDetailsViewModel()
             {
                 Usuario = UsuarioRepository.GetById(id).Result,

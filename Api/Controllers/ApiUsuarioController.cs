@@ -5,10 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 namespace DesenvolvedorNET.Api.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
-    public class UsuarioController : ControllerBase
+    [Route("api/Usuario")]
+    public class ApiUsuarioController : ControllerBase
     {
-        public UsuarioController()
+        public ApiUsuarioController()
         {
         }
         [HttpGet]
