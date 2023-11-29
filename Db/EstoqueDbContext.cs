@@ -1,14 +1,15 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace DesenvolvedorNET.Db
 {
-    //add support to entity framework core identity
-    public class EstoqueUsuario : IdentityUser
+    public class EstoqueDbContext : IdentityDbContext
     {
-    }
+        public EstoqueDbContext(DbContextOptions<EstoqueDbContext> options)
+            : base(options)
+        {
 
-    public class EstoqueDbContext : DbContext
-    {
+        }
     }
 }
