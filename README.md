@@ -45,7 +45,7 @@ Aplicando as principais tecnologias desse ecossistema.
 - deletar um empregado
 - manipular erros
 - manipular exceções
-- [ ] criar logs de registro
+- manipular logs de registro
 - [ ] criar um contexto com login e senha usando o Identity
 - [ ] criar niveis de acesso para usuarios do sistema
 - [ ] criar ambiente de acesso restrito as seguintes funçoes de um programa de estoque

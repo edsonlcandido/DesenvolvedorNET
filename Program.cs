@@ -45,6 +45,12 @@ namespace DesenvolvedorNET
             {
                 options.UseSqlite($@"Data Source={System.IO.Path.Combine(outputPath, "DesenvolvedorNET.db")}");
             });
+            //configure the connection string to database
+            builder.Services.AddDbContext<EstoqueDbContext>(options =>
+            {
+                options.UseSqlite($@"Data Source={System.IO.Path.Combine(outputPath, "Estoque.db")}");
+            });
+
 
             var app = builder.Build();
 
