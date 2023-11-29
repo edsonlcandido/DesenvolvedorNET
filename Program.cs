@@ -54,7 +54,6 @@ namespace DesenvolvedorNET
             builder.Services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<EstoqueDbContext>();
 
-
             var app = builder.Build();
 
             //migrate dbcontext
