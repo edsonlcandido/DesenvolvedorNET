@@ -1,4 +1,5 @@
-﻿
+﻿@using Microsoft.AspNetCore.Identity
+@model IdentityUser
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -10,19 +11,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 </head>
 <body>
-    @using (Html.BeginForm("novo", "usuario", FormMethod.Post))
+
+    @if (ViewData.ModelState.ErrorCount > 0)
     {
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" name="name" required>
+        <div class="alert alert-danger">
+            <ul>
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
         </div>
-
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" name="email" required>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
     }
+
+    <form asp-controller="Usuario" asp-action="Novo" method="post">
+        <div class="form-group">
+            <label for="Nome">Nome</label>
+            <input type="text" class="form-control" id="Nome" asp-for="UserName" placeholder="Digite o nome">
+        </div>
+        <div class="form-group">
+            <label for="Email">Email</label>
+            <input type="email" class="form-control" id="Email" asp-for="Email" placeholder="Digite o email">
+        </div>
+        <div class="form-group">
+            <label for="Password">Senha</label>
+            <input type="password" class="form-control" id="Password" asp-for="PasswordHash" placeholder="Digite a senha">
+        </div>
+        <button type="submit" class="btn btn-primary">Registrar</button>
+    </form>
 </body>
 </html>
