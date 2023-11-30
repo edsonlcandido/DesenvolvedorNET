@@ -95,7 +95,8 @@ namespace DesenvolvedorNET
             {
                 var context = scope.ServiceProvider.GetRequiredService<EmpregadosContext>();
                 empregado = EmpregadoRepository.GetById(1, context).Result;
-            }                
+            }             
+
             app.Run();
         }
     }
