@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DesenvolvedorNET.Controllers.Estoque
+namespace DesenvolvedorNET.Areas.Estoque.Controllers
 {
     [Area("Estoque")]
     public class UsuarioController : Controller
@@ -17,7 +17,7 @@ namespace DesenvolvedorNET.Controllers.Estoque
         public IActionResult Novo()
         {
             ViewData["Title"] = "Novo Usuário";
-            return View("~/Views/Estoque/Usuario/Novo.cshtml");
+            return View();
         }
         [HttpPost]
         [Route("Estoque/Usuario/Novo")]
@@ -32,7 +32,7 @@ namespace DesenvolvedorNET.Controllers.Estoque
             {
                 ModelState.AddModelError("", error.Description);
             }
-            return View("~/Views/Estoque/Usuario/Novo.cshtml", model);
+            return View("", model);
         }
     }
 }

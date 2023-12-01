@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace DesenvolvedorNET.Controllers.Estoque
+namespace DesenvolvedorNET.Areas.Estoque.Controllers
 {
     [Area("Estoque")]
     public class HomeController : Controller
@@ -9,7 +9,7 @@ namespace DesenvolvedorNET.Controllers.Estoque
         public ViewResult Index()
         {
             ViewData["Title"] = "Estoque";
-            return View("~/Views/Estoque/Index.cshtml");
+            return View();
         }
     }
 }
