@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DesenvolvedorNET.Controllers.Estoque
 {
+    [Area("Estoque")]
     public class UsuarioController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;

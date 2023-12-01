@@ -2,6 +2,7 @@
 
 namespace DesenvolvedorNET.Controllers.Estoque
 {
+    [Area("Estoque")]
     public class HomeController : Controller
     {
         [Route("Estoque")]

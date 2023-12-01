@@ -88,14 +88,14 @@ namespace DesenvolvedorNET
             staticFileOptions.DefaultContentType = "None";
             staticFileOptions.ServeUnknownFileTypes = false;
             app.UseStaticFiles(staticFileOptions);
-            app.UseMvcWithDefaultRoute();
+            app.MapAreaControllerRoute(
+                name: "Estoque",
+                areaName: "Estqoue",
+                pattern: "Estoque/{controller=Home}/{action=Index}/{id?}");
 
-            Empregado empregado;
-            using (var scope = app.Services.CreateScope())
-            {
-                var context = scope.ServiceProvider.GetRequiredService<EmpregadosContext>();
-                empregado = EmpregadoRepository.GetById(1, context).Result;
-            }             
+            app.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");          
 
             app.Run();
         }
