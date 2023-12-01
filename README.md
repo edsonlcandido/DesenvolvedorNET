@@ -50,7 +50,7 @@ Aplicando as principais tecnologias desse ecossistema.
 - pagina [/estoque](/estoque)
 - criado area para a pagina de estoque
 - [ ] criar um contexto com login e senha usando o Identity
-	- [ ] criar um viewmodel para confirmar mesma senha e registrar um IdentityUser
+	- criar um viewmodel para confirmar mesma senha e registrar um IdentityUser
 	- [ ] login e autenticar um IdentityUser
 	- [ ] alterar senha de um IdentityUser
 - [ ] criar niveis de acesso para usuarios do sistema
