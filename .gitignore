@@ -363,3 +363,6 @@ MigrationBackup/
 FodyWeavers.xsd
 /EvolveMigration.db
 /DesenvolvedorNET.db
+/Estoque.db
+/Estoque.db-shm
+/Estoque.db-wal

@@ -19,6 +19,7 @@ Aplicando as principais tecnologias desse ecossistema.
 - Bulma CSS
 - Entity Framework Core
 - LINQ
+- Identity
 
 ## Roadmap
 
@@ -45,8 +46,13 @@ Aplicando as principais tecnologias desse ecossistema.
 - deletar um empregado
 - manipular erros
 - manipular exceções
-- [ ] criar logs de registro
+- manipular logs de registro
+- pagina [/estoque](/estoque)
+- criado area para a pagina de estoque
 - [ ] criar um contexto com login e senha usando o Identity
+	- criar um viewmodel para confirmar mesma senha e registrar um IdentityUser
+	- [ ] login e autenticar um IdentityUser
+	- [ ] alterar senha de um IdentityUser
 - [ ] criar niveis de acesso para usuarios do sistema
 - [ ] criar ambiente de acesso restrito as seguintes funçoes de um programa de estoque
 - [	] administrar usuarios

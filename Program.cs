@@ -10,6 +10,7 @@ using DesenvolvedorNET.Repositories;
 using DesenvolvedorNET.Db;
 using Microsoft.EntityFrameworkCore;
 using DesenvolvedorNET.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace DesenvolvedorNET
 { 
@@ -45,6 +46,13 @@ namespace DesenvolvedorNET
             {
                 options.UseSqlite($@"Data Source={System.IO.Path.Combine(outputPath, "DesenvolvedorNET.db")}");
             });
+            //configure the connection string to database estoque
+            builder.Services.AddDbContext<EstoqueDbContext>(options =>
+            {
+                options.UseSqlite($@"Data Source={System.IO.Path.Combine(outputPath, "Estoque.db")}");
+            });
+            builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<EstoqueDbContext>();
 
             var app = builder.Build();
 
@@ -53,6 +61,11 @@ namespace DesenvolvedorNET
             {
                 var db = scope.ServiceProvider.GetRequiredService<EmpregadosContext>();
                 db.Database.Migrate();
+                db.SaveChanges();
+
+                var dbEstoque = scope.ServiceProvider.GetRequiredService<EstoqueDbContext>();
+                dbEstoque.Database.Migrate();
+                dbEstoque.SaveChanges();
             }
 
             IHostEnvironment env = app.Services.GetService<IHostEnvironment>();
@@ -75,14 +88,15 @@ namespace DesenvolvedorNET
             staticFileOptions.DefaultContentType = "None";
             staticFileOptions.ServeUnknownFileTypes = false;
             app.UseStaticFiles(staticFileOptions);
-            app.UseMvcWithDefaultRoute();
+            app.MapAreaControllerRoute(
+                name: "Estoque",
+                areaName: "Estqoue",
+                pattern: "Estoque/{controller=Home}/{action=Index}/{id?}");
 
-            Empregado empregado;
-            using (var scope = app.Services.CreateScope())
-            {
-                var context = scope.ServiceProvider.GetRequiredService<EmpregadosContext>();
-                empregado = EmpregadoRepository.GetById(1, context).Result;
-            }                
+            app.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");          
+
             app.Run();
         }
     }
