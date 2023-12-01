@@ -1,5 +1,5 @@
-﻿@using Microsoft.AspNetCore.Identity
-@model IdentityUser
+﻿@using DesenvolvedorNET.ViewModels.Estoque
+@model UsuarioNovoViewModel
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -28,15 +28,19 @@
     <form asp-controller="Usuario" asp-action="Novo" method="post">
         <div class="form-group">
             <label for="Nome">Nome</label>
-            <input type="text" class="form-control" id="Nome" asp-for="UserName" placeholder="Digite o nome">
+            <input type="text" class="form-control" id="Nome" asp-for="identityUser.UserName" placeholder="Digite o nome">
         </div>
         <div class="form-group">
             <label for="Email">Email</label>
-            <input type="email" class="form-control" id="Email" asp-for="Email" placeholder="Digite o email">
+            <input type="email" class="form-control" id="Email" asp-for="identityUser.Email" placeholder="Digite o email">
         </div>
         <div class="form-group">
-            <label for="Password">Senha</label>
-            <input type="password" class="form-control" id="Password" asp-for="PasswordHash" placeholder="Digite a senha">
+            <label for="PasswordHash">Senha</label>
+            <input type="password" class="form-control" id="PasswordHash" asp-for="identityUser.PasswordHash" placeholder="Digite a senha">
+        </div>
+        <div class="form-group">
+            <label for="PasswordConfirm">Confirmação</label>
+            <input type="password" class="form-control" id="PasswordConfirm" asp-for="PasswordConfirm" placeholder="Digite a senha">
         </div>
         <button type="submit" class="btn btn-primary">Registrar</button>
     </form>

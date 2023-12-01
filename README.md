@@ -48,6 +48,7 @@ Aplicando as principais tecnologias desse ecossistema.
 - manipular exceções
 - manipular logs de registro
 - pagina [/estoque](/estoque)
+- criado area para a pagina de estoque
 - [ ] criar um contexto com login e senha usando o Identity
 	- [ ] criar um viewmodel para confirmar mesma senha e registrar um IdentityUser
 	- [ ] login e autenticar um IdentityUser
