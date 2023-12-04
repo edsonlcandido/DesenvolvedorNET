@@ -1,4 +1,4 @@
-﻿using DesenvolvedorNET.ViewModels.Estoque;
+﻿using DesenvolvedorNET.Models.Estoque;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,16 +22,22 @@ namespace DesenvolvedorNET.Areas.Estoque.Controllers
         }
         [HttpPost]
         [Route("Estoque/Usuario/Novo")]
-        public async Task<IActionResult> Novo(UsuarioNovoViewModel model)
+        public async Task<IActionResult> Novo(Usuario model)
         {
             //verify if password and password confirm are equals
-            if (model.identityUser.PasswordHash != model.PasswordConfirm)
+            if (model.Password != model.PasswordConfirm)
             {
                 ModelState.AddModelError("", "Senha e confirmação de senha não conferem!");
                 return View(model);
             }
 
-            var result = await _userManager.CreateAsync(model.identityUser, model.identityUser.PasswordHash);
+            IdentityUser user = new IdentityUser
+            {
+                UserName = model.Email,
+                Email = model.Email
+            };
+            
+            var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
                 return RedirectToAction("Index", "Home");

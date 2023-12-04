@@ -2,10 +2,10 @@
 
 namespace DesenvolvedorNET.Models.Estoque
 {
-    public class Usuario : IdentityUser
+    public class Usuario
     {
-        public string Id { get; set; }
-        public string Nome { get; set;}
+        public string Email { get; set;}
         public string Password { get; set; }
+        public string PasswordConfirm { get; set; }
     }
 }
