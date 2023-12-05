@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
 <html lang="pt-br" class=" has-aside-left has-aside-mobile-transition has-navbar-fixed-top has-aside-expanded">
 <head>
     <meta charset="utf-8" />
@@ -9,6 +11,22 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    main {
+        flex: 1 0 auto;
+    }
+
+    footer {
+        flex-shrink: 0;
+    }
+</style>
+
 <body>
     <div id="app">
         <nav id="navbar-main" class="navbar is-fixed-top">
@@ -16,6 +34,16 @@
                 <a class="navbar-item is-hidden-desktop jb-aside-mobile-toggle">
                     <span class="icon"><i class="mdi mdi-24px mdi-forwardburger"></i></span>
                 </a>
+            </div>
+            <div class="navbar-menu fadeIn animated faster">
+                <div class="navbar-end">
+                    <a asp-action="novo" asp-controller="usuario" asp-area="estoque" title="GitHub" class="navbar-item has-divider">
+                        <span>Registrar</span>
+                    </a>
+                    <a asp-action="login" asp-controller="usuario" asp-area="estoque" title="GitHub" class="navbar-item has-divider">
+                        <span>Login</span>
+                    </a>
+                </div>
             </div>
         </nav>
         @RenderBody()

@@ -14,14 +14,14 @@ namespace DesenvolvedorNET.Areas.Estoque.Controllers
             _userManager = userManager;
         }
 
-        [Route("Estoque/Usuario/Novo")]
+        [Route("estoque/usuario/novo")]
         public IActionResult Novo()
         {
             ViewData["Title"] = "Novo Usuário";
             return View();
         }
         [HttpPost]
-        [Route("Estoque/Usuario/Novo")]
+        [Route("estoque/usuario/novo")]
         public async Task<IActionResult> Novo(Usuario model)
         {
             //verify if password and password confirm are equals
@@ -47,6 +47,11 @@ namespace DesenvolvedorNET.Areas.Estoque.Controllers
                 ModelState.AddModelError("", error.Description);
             }
             return View(model);
+        }
+        [Route("estoque/usuario/login")]
+        public IActionResult Login()
+        {
+            return View("~/areas/estoque/views/usuario/novo.cshtml");
         }
     }
 }

@@ -1,43 +1,109 @@
 ﻿@using DesenvolvedorNET.Models.Estoque;
 @model Usuario
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <title>@ViewData["Title"]</title>
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-    <meta charset="utf-8" />
-    <!--Meta initial scale-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-</head>
-<body>
-    <a href="@Url.Action("Index", "Home", new {area=""})"> Inicio</a>
-    <a href="@Url.Action("Index", "Home", new {area="Estoque"})"> Estoque</a>
-        @if (ViewData.ModelState.ErrorCount > 0)
-    {
-        <div class="alert alert-danger">
-            <ul>
-                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
-                {
-                    <li>@error.ErrorMessage</li>
-                }
-            </ul>
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Registrar usuario";
+}
+<aside class="aside is-placed-left is-expanded">
+    <div class="aside-tools">
+        <div class="aside-tools-label">
+            <span>Estoque</span>
         </div>
-    }
+    </div>
+    <div class="menu is-menu-main">
+        <p class="menu-label">Geral</p>
+        <ul class="menu-list">
+            <li>
+                <a asp-action="index" asp-controller="home" asp-area="" class="has-icon">
+                    <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
+                    <span class="menu-item-label">Home</span>
+                </a>
+            </li>
+        </ul>
+        <p class="menu-label">Menu estoque</p>
+        <ul class="menu-list">
+            <li>
+                <a asp-action="index" asp-controller="home" asp-area="estoque" class="has-icon">
+                    <span class="icon"><i class="mdi mdi-table"></i></span>
+                    <span class="menu-item-label">Estoque</span>
+                </a>
+            </li>
 
-    <form asp-controller="Usuario" asp-action="Novo" method="post">
-            <label for="Email">Email</label>
-            <input type="email" class="form-control" id="Email" asp-for="Email" placeholder="Digite o email">
-        </div>
-        <div class="form-group">
-            <label for="PasswordHash">Senha</label>
-            <input type="password" class="form-control" id="PasswordHash" asp-for="Password" placeholder="Digite a senha">
-        </div>
-        <div class="form-group">
-            <label for="PasswordConfirm">Confirmação</label>
-            <input type="password" class="form-control" id="PasswordConfirm" asp-for="PasswordConfirm" placeholder="Digite a senha">
-        </div>
-        <button type="submit" class="btn btn-primary">Registrar</button>
-    </form>
-</body>
-</html>
+        </ul>
+        <p class="menu-label">Usuario</p>
+        <ul class="menu-list">
+            <li>
+                <a asp-action="novo" asp-controller="usuario" asp-area="estoque" class="has-icon">
+                    <span class="icon"><i class="mdi mdi-account-plus-outline"></i></span>
+                    <span class="menu-item-label">Adicionar</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</aside>
+<section class="section is-main-section">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-two-fifths">
+                <div class="card">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                            <span class="icon">
+                                <i class="mdi mdi-account-multiple-plus"></i>
+                            </span> 
+                            Novo usuario 
+                        </p>
+                    </header>
+                    <div class="card-content">
+                        @if (ViewData.ModelState.ErrorCount > 0)
+                        {
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                                    {
+                                        <li>@error.ErrorMessage</li>
+                                    }
+                                </ul>
+                            </div>
+                        }
+                        <form asp-controller="usuario" asp-action="novo" asp-area="estoque" method="post">
+                            <div class="field">
+                                <label class="label">E-mail</label>
+                                <div class="control is-clearfix">
+                                    <input type="email" autocomplete="on" id="email" asp-for="Email" required="required" class="input">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Senha</label>
+                                <div class="control is-clearfix">
+                                    <input type="password" autocomplete="on" asp-for="Password" required="required" class="input">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Confirme a senha</label>
+                                <div class="control is-clearfix">
+                                    <input type="password" autocomplete="on" asp-for="PasswordConfirm" required="required" class="input">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="field">
+                                <div class="field-body">
+                                    <div class="field is-grouped">
+                                        <div class="control">
+                                            <button type="submit" class="button is-black">
+                                                <span> Registrar </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </div>
+</section>
+
+
+
