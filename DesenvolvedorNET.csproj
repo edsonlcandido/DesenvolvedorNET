@@ -47,7 +47,6 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
-    <Folder Include="ViewModels\Estoque\" />
   </ItemGroup>
 
 </Project>

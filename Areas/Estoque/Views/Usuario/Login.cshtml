@@ -1,5 +1,5 @@
-﻿@using DesenvolvedorNET.Models.Estoque;
-@model Usuario
+﻿@using DesenvolvedorNET.ViewModels.Estoque
+@model UsuarioLoginViewModel
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     Layout = "_Layout";
@@ -14,8 +14,8 @@
                         <p class="card-header-title">
                             <span class="icon">
                                 <i class="mdi mdi-account-multiple-plus"></i>
-                            </span> 
-                            Novo usuario 
+                            </span>
+                            Novo usuario
                         </p>
                     </header>
                     <div class="card-content">
@@ -30,24 +30,25 @@
                                 </ul>
                             </div>
                         }
-                        <form asp-controller="usuario" asp-action="novo" asp-area="estoque" method="post">
+                        <form method="POST" asp-action="login" asp-controller="usuario" asp-area="estoque">
                             <div class="field">
-                                <label class="label">E-mail</label>
+                                <label asp-for="Email" class="label">E-mail Address</label>
                                 <div class="control is-clearfix">
-                                    <input type="email" autocomplete="on" id="email" asp-for="Email" required="required" class="input">
+                                    <input type="email" asp-for="Email" required="required" class="input">
                                 </div>
                             </div>
                             <div class="field">
-                                <label class="label">Senha</label>
+                                <label asp-for="Password" class="label">Password</label>
                                 <div class="control is-clearfix">
-                                    <input type="password" autocomplete="on" asp-for="Password" required="required" class="input">
+                                    <input type="password" asp-for="Password" required="required" class="input">
                                 </div>
                             </div>
                             <div class="field">
-                                <label class="label">Confirme a senha</label>
-                                <div class="control is-clearfix">
-                                    <input type="password" autocomplete="on" asp-for="PasswordConfirm" required="required" class="input">
-                                </div>
+                                <label asp-for="RememberMe" class="b-checkbox checkbox is-thin">
+                                    <input type="checkbox" asp-for="RememberMe">
+                                    <span class="check is-black"></span>
+                                    <span class="control-label"> Remember me </span>
+                                </label>
                             </div>
                             <hr>
                             <div class="field">
@@ -55,7 +56,7 @@
                                     <div class="field is-grouped">
                                         <div class="control">
                                             <button type="submit" class="button is-black">
-                                                <span> Registrar </span>
+                                                <span> Login </span>
                                             </button>
                                         </div>
                                     </div>
@@ -65,7 +66,7 @@
                     </div>
                 </div>
             </div>
-    </div>
+        </div>
 </section>
 
 

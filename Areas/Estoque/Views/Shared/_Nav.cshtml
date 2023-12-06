@@ -1,0 +1,25 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+<nav id="navbar-main" class="navbar is-fixed-top">
+    <div class="navbar-end">
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <a asp-action="logout" asp-controller="usuario" asp-area="estoque" title="Login" class="navbar-item">
+                <span>Sair, @User.Identity.Name</span>
+            </a>
+        }
+        else
+        {
+            <a asp-action="novo" asp-controller="usuario" asp-area="estoque" title="Registrar" class="navbar-item has-divider">
+                <span>Registrar</span>
+            </a>
+            <a asp-action="login" asp-controller="usuario" asp-area="estoque" title="Login" class="navbar-item">
+                <span>Login</span>
+            </a>
+        }
+    </div>
+</nav>

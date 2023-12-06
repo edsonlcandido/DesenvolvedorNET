@@ -52,6 +52,7 @@ Aplicando as principais tecnologias desse ecossistema.
 - [ ] criar um contexto com login e senha usando o Identity
 	- criar um viewmodel para confirmar mesma senha e registrar um IdentityUser
 	- [ ] login e autenticar um IdentityUser
+	- [ ] mostrar links de logar e deslogar
 	- [ ] alterar senha de um IdentityUser
 - [ ] criar niveis de acesso para usuarios do sistema
 - [ ] criar ambiente de acesso restrito as seguintes funçoes de um programa de estoque

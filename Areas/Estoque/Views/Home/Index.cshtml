@@ -3,43 +3,6 @@
     Layout = "_Layout";
     ViewData["Title"] = "Estoque";
 }
-<aside class="aside is-placed-left is-expanded">
-    <div class="aside-tools">
-        <div class="aside-tools-label">
-            <span>Estoque</span>
-        </div>
-    </div>
-    <div class="menu is-menu-main">
-        <p class="menu-label">Geral</p>
-        <ul class="menu-list">
-            <li>
-                <a asp-action="index" asp-controller="home" asp-area="" class="has-icon">
-                    <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
-                    <span class="menu-item-label">Home</span>
-                </a>
-            </li>
-        </ul>
-        <p class="menu-label">Menu estoque</p>
-        <ul class="menu-list">
-            <li>
-                <a asp-action="index" asp-controller="home" asp-area="estoque" class="has-icon">
-                    <span class="icon"><i class="mdi mdi-table"></i></span>
-                    <span class="menu-item-label">Estoque</span>
-                </a>
-            </li>
-
-        </ul>
-        <p class="menu-label">Usuario</p>
-        <ul class="menu-list">
-            <li>
-                <a asp-action="novo" asp-controller="usuario" asp-area="estoque" class="has-icon">
-                    <span class="icon"><i class="mdi mdi-account-plus-outline"></i></span>
-                    <span class="menu-item-label">Adicionar</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-</aside>
 <section class="hero is-hero-bar">
     <div class="hero-body">
         <div class="level">
@@ -60,54 +23,7 @@
     <div class="container">
         <div class="columns is-centered">
             <div class="column is-two-fifths">
-                <div class="card">
-                    <header class="card-header">
-                        <p class="card-header-title">
-                            <span class="icon">
-                                <i class="mdi mdi-lock default"></i>
-                            </span>
-                            Login
-                        </p>
-                    </header>
-                    <div class="card-content">
-                        <form method="POST" data-bitwarden-watching="1">
-                            <div class="field">
-                                <label class="label">E-mail Address</label>
-                                <div class="control is-clearfix">
-                                    <input type="email" autocomplete="on" name="email" required="required" class="input">
-                                </div>
-                            </div>
-                            <div class="field">
-                                <label class="label">Password</label>
-                                <div class="control is-clearfix">
-                                    <input type="password" autocomplete="on" name="password" required="required" class="input">
-                                </div>
-                            </div>
-                            <div class="field">
-                                <label class="b-checkbox checkbox is-thin">
-                                    <input type="checkbox" autocomplete="on" true-value="true" value="false">
-                                    <span class="check is-black"></span>
-                                    <span class="control-label"> Remember me </span>
-                                </label>
-                            </div>
-                            <hr>
-                            <div class="field">
-                                <div class="field-body">
-                                    <div class="field is-grouped">
-                                        <div class="control">
-                                            <button type="submit" class="button is-black">
-                                                <span> Login </span>
-                                            </button>
-                                        </div>
-                                        <div class="control">
-                                            <a href="#/" class="button is-outlined is-black router-link-active"> Dashboard </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                
             </div>
         </div>
 </section>
