@@ -54,6 +54,24 @@ namespace DesenvolvedorNET
             builder.Services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<EstoqueDbContext>();
 
+            builder.Services.ConfigureApplicationCookie(options =>
+            {
+                options.Events.OnRedirectToLogin = context =>
+                {
+                    var returnUrl = context.Request.Path.Value;
+                    if (context.Request.Path.StartsWithSegments("/estoque"))
+                    {
+                        context.RedirectUri = $"/estoque/usuario/login";
+                    }
+                    else
+                    {
+                        context.RedirectUri = $"/Account/Login";
+                    }
+                    context.Response.Redirect(context.RedirectUri);
+                    return Task.CompletedTask;
+                };
+            });
+
             var app = builder.Build();
 
             //migrate dbcontext

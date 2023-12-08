@@ -53,6 +53,7 @@ Aplicando as principais tecnologias desse ecossistema.
 	- criar um viewmodel para confirmar mesma senha e registrar um IdentityUser
 	- login e autenticar um IdentityUser
 	- mostrar links de logar e deslogar
+	- "/estoque" acessivel somente para usuarios logados
 	- [ ] criar roles para usuarios
 	- [ ] criar um usuario administrador
 	- [ ] editar usuario

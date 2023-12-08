@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DesenvolvedorNET.Areas.Estoque.Controllers
 {
+    [Authorize]
     [Area("Estoque")]
     public class HomeController : Controller
     {
+        
         [Route("estoque")]
         public ViewResult Index()
         {
