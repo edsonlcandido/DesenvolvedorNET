@@ -9,7 +9,8 @@ namespace DesenvolvedorNET.Areas.Estoque.Controllers
         
         public IActionResult Index()
         {
-            return RedirectToRoute(new {controller="home", action="index", area="" });
+            return View();
+            //return RedirectToRoute(new {controller="home", action="index", area="" });
         }
     }
 }
