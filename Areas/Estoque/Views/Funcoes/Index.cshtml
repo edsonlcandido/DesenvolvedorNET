@@ -1,8 +1,10 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+﻿@using Microsoft.AspNetCore.Identity;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     Layout = "_Layout";
     ViewData["Title"] = "Funções";
 }
+@model List<IdentityRole>
 <section class="hero is-hero-bar">
     <div class="hero-body">
         <div class="level">
@@ -41,17 +43,17 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @* @foreach (var item in Model)
-                                        { *@
+                                        @foreach (var item in Model)
+                                        {
                                             <tr>
-                                                <td>item.Name</td>
+                                                <td>@item.Name</td>
                                                 <td class="has-text-right">
                                                     <a asp-action="excluir" asp-controller="funcoes" asp-area="estoque" asp-route-id="item.Id" class="button is-small is-danger">
                                                         <span class="icon"><i class="mdi mdi-delete"></i></span>
                                                     </a>
                                                 </td>
                                             </tr>
-                                       @*  } *@
+                                       }
                                     </tbody>
                                 </table>
                             </div>
