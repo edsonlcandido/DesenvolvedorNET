@@ -51,24 +51,15 @@ Aplicando as principais tecnologias desse ecossistema.
 - criado area para a pagina de estoque
 - [ ] criar um contexto com login e senha usando o Identity
 	- criar um viewmodel para confirmar mesma senha e registrar um IdentityUser
-	- login e autenticar um IdentityUser
-	- mostrar links de logar e deslogar
-	- "/estoque" acessivel somente para usuarios logados
-	- [ ] criar roles para usuarios
-	- [ ] criar um usuario administrador
-	- [ ] editar usuario
-	- [ ] deletar usuario
-	- [ ] resetar uma senha de usuario
+	- [ ] login e autenticar um IdentityUser
+	- [ ] alterar senha de um IdentityUser
 - [ ] criar niveis de acesso para usuarios do sistema
-	- [ ] usuarios administradores podem movimentar o estoque
-	- [ ] usuarios comuns podem apenas visualizar o estoque
 - [ ] criar ambiente de acesso restrito as seguintes funçoes de um programa de estoque
-	- [	] administrar usuarios
-	- [ ] cadastrar produtos
-	- [ ] listar produtos
-	- [ ] editar produtos
-	- [ ] adcionar entrada de produtos
-	- [ ] retirar produtos
-	- [ ] criar um historico de movimentações 
-- [ ] usuarios comuns podem apenas visualizar o estoque
+- [	] administrar usuarios
+- [ ] cadastrar produtos
+- [ ] listar produtos
+- [ ] editar produtos
+- [ ] adcionar entrada de produtos
+- [ ] retirar produtos
+- [ ] criar um historico de movimentações 
 - [ ] transformar os endpoint numa API RESTfull
