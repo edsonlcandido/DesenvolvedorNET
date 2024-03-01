@@ -68,11 +68,17 @@ namespace DesenvolvedorNET.Areas.Estoque.Controllers
         public async Task<IActionResult> Login(UsuarioLoginViewModel model, string returnUrl="")
         {
             if (ModelState.IsValid)
-            {                
+            {         
+                //verify if user email exists
+                var user = await _userManager.FindByEmailAsync(model.Email);
+                if (user == null)
+                {
+                    ModelState.AddModelError("", "Usuário não encontrado!");
+                    return View(model);
+                }
 
                 var result = await _signManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
-                
-                
+                          
                 if (result.Succeeded)
                 {
                     if (!string.IsNullOrEmpty(returnUrl) )
@@ -82,9 +88,14 @@ namespace DesenvolvedorNET.Areas.Estoque.Controllers
                     else
                     {
                         return RedirectToAction("index", "home", new { area = "estoque" });
-                    }                    
+                    }
                 }
-                ModelState.AddModelError("", "Login ou senha inválidos!");
+                else
+                {
+                    ModelState.AddModelError("", "Login ou senha inválidos!");
+                    return View(model);
+                }
+                
             }
             return View(model);
         }
